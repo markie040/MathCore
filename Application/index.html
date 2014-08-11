@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Under The Sea Learning</title>
+    <script type="text/javascript" src="javascript/lib/KineticJS.js"></script>
+    <script type="text/javascript" src="javascript/__extends.js"></script>
+
+    <script type="text/javascript" src="javascript/core/Theme.js"></script>
+    <script type="text/javascript" src="javascript/core/View.js"></script>
+    <script type="text/javascript" src="javascript/AssetManager.js"></script>
+
+    <style>
+        .Absolute-Center {
+            width: 50%;
+            height: 50%;
+            overflow: auto;
+            margin: auto;
+            position: absolute;
+            background:#fff;
+            top: 0; left: 0; bottom: 0; right: 0;
+            z-index:9;
+        }
+
+        .city-footer{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width:100%;
+            height:100%;
+            background-image:url('img/background/static_city.png');
+            background-color: #c5eff7;
+            background-repeat: repeat-x;
+            background-position: bottom center;
+        }
+
+        .hill-background {
+            background-image:url('img/background/hills.png');
+            background-color: #a27853;
+            background-repeat: repeat-x;
+            background-position: top center;
+        }
+
+        .cloud-background {
+           // background-image:url('./img/background/clouds.png');
+            background-color: #abe7e7;
+            background-repeat: repeat-x;
+            background-position: top center;
+        }
+
+    </style>
+</head>
+    <body style="background-color:#c5eff7; margin:0px; padding: 0px; width:100%; height:100%;">
+        <div class="city-footer"></div>
+        <div id="wrapper" style="position:absolute; height:100%; width:100%">
+            <div id="canvas" style=" z-index:9" ></div>
+        </div>
+    </body>
+    <script>
+
+        window.ui_settings = (function (_super){
+           __extends(ui_settings , _super)
+           function ui_settings(){
+               // botton left
+               _super.call(this);
+           }
+
+           ui_settings.prototype.menu = function(){
+
+           }
+
+           ui_settings.prototype.build = function(){
+
+               var button = new Kinetic.Group({x:parseInt(app.resoultion.width) - app.assets.cache['cornerButtonBackground'].width - 10 ,  y: parseInt(app.resoultion.height) - app.assets.cache['cornerButtonBackground'].height - 10  });
+
+               button.add(new Kinetic.Image({x:10 , y: -app.assets.cache['ui_setting_menu'].height +  app.assets.cache['cornerButtonBackground'].height , image: app.assets.cache['ui_setting_menu']}));
+               button.add(new Kinetic.Image({x:0 , y:0 , image: app.assets.cache['cornerButtonBackground']}));
+               button.add(new Kinetic.Image({x:0 , y:0 , image: app.assets.cache['ui_setting']}));
+              this._layer.add(button);
+              this._layer.batchDraw();
+           }
+           return ui_settings;
+        })(View);
+
+        window.ui_graphcis = {
+
+
+        }
+
+        window._canvas = (function (){ // helper function for canvas maniplation
+            function _canvas()
+            {
+
+            }
+
+            _canvas.prototype._constructCanvas = function ()
+            {
+                var _this = this;
+                this.stage = new Kinetic.Stage({
+                    container: 'canvas',
+                    width: this.resoultion.width,
+                    height: this.resoultion.height
+                });
+
+                this._scaleCanvas();
+
+                window.onresize = function () {
+                    _this._scaleCanvas();
+                }
+            }
+
+            _canvas.prototype._scaleCanvas = function()
+            {
+                var wrapper = document.getElementById('wrapper');
+
+                var w = window.innerWidth;
+                var h = window.innerHeight;
+
+                var ratioW = window.innerWidth  / this.resoultion.width;
+                var ratioH = window.innerHeight / this.resoultion.height;
+
+                this.scale = ratioW < ratioH ? ratioW : ratioH;
+
+                var newHeight = parseInt(this.resoultion.height * this.scale);
+                var newWidth  = parseInt(this.resoultion.width  * this.scale);
+
+                wrapper.style.width  = newWidth + "px";
+                wrapper.style.height = newHeight + "px";
+
+                wrapper.style.position = "absolute";
+                wrapper.style.left     = parseInt((w - newWidth) / 2) + "px";
+                wrapper.style.top      = parseInt((h - newHeight) / 2) + "px";
+
+                this.stage.scale({x: this.scale, y: this.scale});
+                this.stage.width(newWidth);
+                this.stage.height(newHeight);
+
+                this.stage.batchDraw();
+            }
+
+            return _canvas;
+        })();
+
+
+
+        window.onload = function ()
+        {
+       //     window.app = new window.application();
+        //    window.app.init();
+        }
+
+    </script>
+</html>
