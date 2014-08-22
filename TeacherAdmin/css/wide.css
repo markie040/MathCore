@@ -1,0 +1,23 @@
+body { background: #ffffff; width: 100%;}
+#application_header{width:100%; background-color: #ffffff; height:50px;
+
+border-bottom: 2px solid #E67E22;
+}
+#application_header table{width:100%; height:100%; background-color:#ffffff}
+#application_header table td:first-child{width:250px;}
+#application_header table td{vertical-align:middle; font-size: 12px;}
+
+#application_side_navigation{float:left; width:250px; height:100%; background-color:#E67E22;}
+.boarder {border-bottom: 2px solid #faaa5c;}
+#application_side_navigation .header{ background-color:#EB9532; padding-bottom:20px;}
+#application_side_content{float:left; width:calc(100% - 298px); height:100%; padding:10px; }
+#profile_picture{border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    background-color:#ffffff;
+    margin: 10px auto;
+
+    /* width and height can be anything, as long as they're equal */
+}
+
+#bread-crump{color:#8a877e;}

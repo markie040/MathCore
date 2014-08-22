@@ -1,0 +1,23 @@
+* { margin: 0; padding: 0; }
+@font-face
+{
+    font-family: seguisb;
+    src: url('../fonts/seguisb.ttf'),
+    url('../fonts/seguibl.ttf'), /* IE9 */
+    url('../fonts/seguibl.ttf'), /* IE9 */
+    url('../fonts/seguibl.ttf'), /* IE9 */
+    url('../fonts/seguibl.ttf'); /* IE9 */}
+body
+{
+    font: 14px Georgia, serif; font-family:seguisb;
+    position: absolute;
+    height:100%;
+    width:100%;
+    background-image:url('../img/background/static_city.png');
+    background-color: #c5eff7;
+    background-repeat: repeat-x;
+    background-position: bottom;
+}
+
+#application_wrapper{width:100%; height:100%;}
+#application_side_content #header{font-size: 20px;}

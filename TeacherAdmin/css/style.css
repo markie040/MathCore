@@ -1,0 +1,40 @@
+/*
+	 CSS-Tricks Example
+	 by Chris Coyier
+	 http://css-tricks.com
+*/
+
+* { margin: 0; padding: 0; }
+body
+{
+    font: 14px Georgia, serif; font-family:seguisb;
+    position: absolute;
+    height:100%;
+    background-image:url('../img/background/static_city.png');
+    background-color: #c5eff7;
+    background-repeat: repeat-x;
+    background-position: bottom center;
+}
+
+@font-face
+{
+    font-family: seguisb;
+    src: url('../fonts/seguisb.ttf'),
+    url('../fonts/seguibl.ttf'), /* IE9 */
+    url('../fonts/seguibl.ttf'), /* IE9 */
+    url('../fonts/seguibl.ttf'), /* IE9 */
+    url('../fonts/seguibl.ttf'); /* IE9 */}
+
+#page-wrap { margin: 0px auto; color: white; }
+#page-wrap > div {  padding: 0px; margin-bottom: 0px; color: black; }
+#header { background: #ffffff; font-family:seguisb;}
+#main-content { background: #ffffff; }
+#secondary-one { background: #303641;  }
+#secondary-two { padding: 0px; background: #ffffff;  }
+
+#total_students{background-color:#f56954;}
+#total_parents{background-color:#00a65a;}
+#total_classes{background-color:#00c0ef;}
+#total_teachers{background-color:#0073b7;}
+
+.box_report{background-color:#EB9532; width:190px; height:140px; margin:2px;}

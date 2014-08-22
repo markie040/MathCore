@@ -9,6 +9,11 @@ var _controller = ( function (_super){
        this.init();
    }
 
+   controller.prototype.goBack = function()
+   {
+
+   },
+
    controller.prototype.init = function ()
    {
         if(typeof user === 'undefined')

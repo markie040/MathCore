@@ -3,13 +3,51 @@
 <head>
     <title>Under The Sea Learning</title>
     <script type="text/javascript" src="javascript/lib/KineticJS.js"></script>
+    <script type="text/javascript" src="javascript/lib/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="javascript/__extends.js"></script>
 
+    <script type="text/javascript" src="javascript/lib/ThreeJS.js"></script>
+
+    <script type="text/javascript" src="javascript/extentions/.js"></script>
     <script type="text/javascript" src="javascript/core/Theme.js"></script>
+    <script type="text/javascript" src="javascript/core/database.js"></script>
+    <script type="text/javascript" src="javascript/core/_canvas.js"></script>
     <script type="text/javascript" src="javascript/core/View.js"></script>
+    <script type="text/javascript" src="javascript/application.js"></script>
     <script type="text/javascript" src="javascript/AssetManager.js"></script>
 
+    <script type="text/javascript" src="javascript/classes/language.js"></script>
+    <script type="text/javascript" src="javascript/classes/application_history.js"></script>
+    <script type="text/javascript" src="javascript/classes/authentication_rules.js"></script>
+    <script type="text/javascript" src="javascript/classes/user_manager.js"></script>
+    <script type="text/javascript" src="javascript/classes/application_screen.js"></script>
+    <script type="text/javascript" src="javascript/classes/translation.js"></script>
+
+    <script type="text/javascript" src="javascript/Controllors/StartCrtl.js"></script>
+
+    <script type="text/javascript" src="javascript/View/view.js"></script>
+    <script type="text/javascript" src="javascript/View/StartView.js"></script>
     <style>
+
+        body{font-family: KGWhattheTeacherWants;}
+        @font-face
+        {
+            font-family: KGWhattheTeacherWants;
+            src: url('/fonts/KGWhattheTeacherWants.ttf'),
+            url('../fonts/KGWhattheTeacherWants.ttf'), /* IE9 */
+            url('../fonts/KGWhattheTeacherWants.ttf'), /* IE9 */
+            url('../fonts/KGWhattheTeacherWants.ttf'), /* IE9 */
+            url('../fonts/KGWhattheTeacherWants.ttf'); /* IE9 */}
+
+        @font-face
+        {
+            font-family: KGPrimaryPenmanship;
+            src: url('/fonts/KGPrimaryPenmanship.ttf'),
+            url('../fonts/KGPrimaryPenmanship.ttf'), /* IE9 */
+            url('../fonts/KGPrimaryPenmanship.ttf'), /* IE9 */
+            url('../fonts/KGPrimaryPenmanship.ttf'), /* IE9 */
+            url('../fonts/KGPrimaryPenmanship.ttf'); /* IE9 */}
+
         .Absolute-Center {
             width: 50%;
             height: 50%;
@@ -47,11 +85,146 @@
             background-position: top center;
         }
 
+        input {
+            float:left;
+            outline: none;
+            border: none;
+            padding:0px;
+            width:100%;
+            height:15%;
+            margin:0 auto;
+font-family: KGPrimaryPenmanship;
+        }
+
+        .login-options {
+            float:left;
+            outline: none;
+            border: none;
+            padding:0px;
+            width:100%;
+            height:15%;
+            margin:0 auto;
+            font-family: KGPrimaryPenmanship;
+        }
+
+
+        input[type=submit]:focus, textarea:focus {
+
+
+        }
+
+        input[type=submit]:focus, textarea:focus {
+
+            background-color: #318e58;
+            color:#222222;
+        }
+
+        input[type=submit]{
+
+            background-color: #318e58;
+            color:#fff;
+            font-weight: bold;
+        }
+        #logon-container{
+            border-left: 5px solid #318e58;
+            border-right: 5px solid #318e58;
+        }
+
+        #free-trial-container{
+            border-left:  5px solid #994615;
+            border-right: 5px solid #994615;
+        }
+
+        .base-container{
+            border-bottom: 2px dashed #318e58;
+margin-top: -5%;
+        }
+
+        .base-container-top{
+            border-top: 2px dashed #318e58;
+
+        }
+.title{
+    color: #ffffff;
+}
+
     </style>
 </head>
     <body style="background-color:#c5eff7; margin:0px; padding: 0px; width:100%; height:100%;">
         <div class="city-footer"></div>
-        <div id="wrapper" style="position:absolute; height:100%; width:100%">
+        <div id="wrapper" style="position:absolute; height:100%; width:100%; overflow:hidden;">
+
+            <div id="logon-container" style="height:100%; width:30%; margin:100% auto; background:#f9690e; border-color:#994513">
+                <image style='position: relative;  width:12%; margin-top:2%; left:86%;'src="img/button/ui-dismiss.png"/>
+                <div class="base-container" style="background:#f9690e; height:78%; border-color:#994513 ">
+                    <div style="padding-top:5%;"><table style="width:90%; margin: 0 auto;"><tr><td class="title" fontsize = '40' >Free Trial <small> > Welcome</small></td></tr></table></div>
+                    <div style="margin:0 auto;  width:90%; height:90%; padding-top:2%;">
+                        <div class="text" style="background-color:#994513; width:15%; height:15%;float:left;">
+                            <image src="img/icon/name_icon.png" style="width:68%; margin-top:18%;"></image>
+                        </div>
+                        <input value="My Name" class="text" style="width:85%" type="text"/>
+                        <div class="text" style="background-color:#994513; width:15%; height:15%;float:left;">
+                            <image src="img/icon/phone_icon.png" style="width:68%; margin-top:18%;"></image>
+                        </div>
+                        <input value="My Teleophone" class="text" style="width:85%" type="text"   style=""/>
+                        <div class="text" style="background-color:#D91E18; width:15%; height:15%;float:left;">
+                            <image src="img/icon/error_icon.png" style="width:68%; margin-top:18%;"></image>
+                        </div>
+                        <input value="Not Vaild Email" class="text" style="color:#D91E18; width:85%" type="text"   style=""/>
+                        <div class="text" style="background-color:#994513; width:15%; height:15%;float:left;">
+                            <image src="img/icon/school_icon.png" style="width:68%; margin-top:18%;"></image>
+                        </div>
+                        <input value="Insttustion name" class="text" style="width:85%" type="text"   style=""/>
+                        <div class="text" style="background-color:#994513; width:15%; height:15%;float:left;">
+                            <image src="img/icon/type_icon.png" style="width:68%; margin-top:18%;"></image>
+                        </div>
+                        <input value="password" class="text" style="width:85%" type="password"   style=""/>
+
+                        <input class="text" type="submit" value="ENTER" style="background-color:#994513;">
+                    </div>
+                </div>
+                <div class="base-container-top" style="background:#f8863d; height:20%; border-color:#994513">
+
+                    <div style="margin:0 auto;  background:#D91E18; width:90%; padding:2%;  margin-top:5%;">
+                        <p style='text-align: center' class="title" fontsize = '20'>Errors in your form</p>
+                    </div>
+
+                    <div style="margin:0 auto;   width:90%; padding:2%;  margin-top:5%;">
+                        <p style='margin:0 auto; color:#222222; width:100%; text-align:center' class="title" fontsize = '20'>foggtten your password?</p>
+                    </div>
+
+                </div>
+
+            </div>
+            <--!<div id="logon-container" style=" height:100%; width:30%; margin:0 auto; background:#00b16a;">
+                <image style='position: relative;  width:12%; margin-top:2%; left:86%;'src="img/button/ui-dismiss.png"/>
+                <div class="base-container" style=" height:45%;">
+                    <div style="padding-top:5%;"><table style="width:90%; margin: 0 auto;"><tr><td class="title" fontsize = '40' >Login</td><td class="title" fontsize = '20' style="text-align:right"><small ><a fontsize = '20' href="#">Libary?</a></small></td></tr></table></div>
+                    <div style="margin:0 auto;  width:90%; height:90%; padding-top:2%;">
+                        <div class="text" style="background-color:#318e58; width:15%; height:15%;float:left;">
+                            <image src="img/icon/user_icon.png" style="width:68%; margin-top:18%;"></image>
+                        </div>
+                        <input value="username" class="text" style="width:85%" type="text"/>
+                        <div class="text" style="background-color:#318e58; width:15%; height:15%;float:left;">
+                            <image src="img/icon/lock_icon.png" style="width:68%; margin-top:18%;"></image>
+                        </div>
+                        <input value="password" class="text" style="width:85%" type="password"   style=""/>
+                        <input class="text" type="submit" value="ENTER" style="">
+                    </div>
+                </div>
+                <div class="base-container-top" style=" background:#2cca6d; height:55%;">
+
+                    <div style="margin:0 auto;  background:#D91E18; width:90%; padding:2%;  margin-top:5%;">
+                        <p style='text-align: center' class="title" fontsize = '20'>Your Login is not recoginsed 5 attempts left</p>
+                    </div>
+
+                    <div style="margin:0 auto;   width:90%; padding:2%;  margin-top:5%;">
+                        <p style='margin:0 auto; color:#222222; width:100%; text-align:center' class="title" fontsize = '20'>foggtten your password?</p>
+                    </div>
+
+                </div>
+
+            </div>?-->
             <div id="canvas" style=" z-index:9" ></div>
         </div>
     </body>
@@ -81,71 +254,10 @@
            return ui_settings;
         })(View);
 
-        window.ui_graphcis = {
-
-
-        }
-
-        window._canvas = (function (){ // helper function for canvas maniplation
-            function _canvas()
-            {
-
-            }
-
-            _canvas.prototype._constructCanvas = function ()
-            {
-                var _this = this;
-                this.stage = new Kinetic.Stage({
-                    container: 'canvas',
-                    width: this.resoultion.width,
-                    height: this.resoultion.height
-                });
-
-                this._scaleCanvas();
-
-                window.onresize = function () {
-                    _this._scaleCanvas();
-                }
-            }
-
-            _canvas.prototype._scaleCanvas = function()
-            {
-                var wrapper = document.getElementById('wrapper');
-
-                var w = window.innerWidth;
-                var h = window.innerHeight;
-
-                var ratioW = window.innerWidth  / this.resoultion.width;
-                var ratioH = window.innerHeight / this.resoultion.height;
-
-                this.scale = ratioW < ratioH ? ratioW : ratioH;
-
-                var newHeight = parseInt(this.resoultion.height * this.scale);
-                var newWidth  = parseInt(this.resoultion.width  * this.scale);
-
-                wrapper.style.width  = newWidth + "px";
-                wrapper.style.height = newHeight + "px";
-
-                wrapper.style.position = "absolute";
-                wrapper.style.left     = parseInt((w - newWidth) / 2) + "px";
-                wrapper.style.top      = parseInt((h - newHeight) / 2) + "px";
-
-                this.stage.scale({x: this.scale, y: this.scale});
-                this.stage.width(newWidth);
-                this.stage.height(newHeight);
-
-                this.stage.batchDraw();
-            }
-
-            return _canvas;
-        })();
-
-
-
         window.onload = function ()
         {
-       //     window.app = new window.application();
-        //    window.app.init();
+            window.app = new window.application();
+            window.app.init();
         }
 
     </script>

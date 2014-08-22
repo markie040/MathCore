@@ -16,6 +16,11 @@ var user = (function (){
       return this.firstname + ' ' + this.lastname;
   }
 
+  user.prototype.createUser = function()
+  {
+
+  }
+
   user.prototype.isAdmin = function () {
 
   }
